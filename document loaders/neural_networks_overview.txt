@@ -1,0 +1,43 @@
+An Artificial Neural Network (ANN) is a computational model inspired by the biological neural networks that constitute animal brains. It serves as the foundational backbone of modern deep learning, designed to recognize patterns, classify data, and solve complex problems that are difficult to program using traditional rule-based logic.
+
+======================================================================
+CORE ARCHITECTURE & COMPONENTS
+======================================================================
+
+A standard neural network consists of interconnected processing units called neurons (or nodes) organized into distinct layers:
+
+1. Input Layer:
+   Receives the raw data features (e.g., pixel values of an image, numerical sensor data, or tokenized text embeddings). These nodes do not perform any mathematical transformations; they simply pass the data forward.
+
+2. Hidden Layers:
+   Positioned between the input and output layers, these layers perform the heavy lifting of feature extraction. As data flows through successive hidden layers, the network learns increasingly abstract representations (e.g., early layers might detect edges and lines, while deeper layers recognize complex shapes or complete objects).
+
+3. Output Layer:
+   Produces the final prediction, classification score, or decision (e.g., whether an input image represents a cat or a dog, or a predicted continuous price value).
+
+Inside a Single Neuron:
+Every neuron performs a simple yet powerful computation:
+* It multiplies each incoming input value (x) by a corresponding weight (w).
+* It adds a bias term (b) to shift the decision boundary.
+* It passes the resulting linear sum through a non-linear activation function (such as ReLU, Sigmoid, or Softmax) to introduce non-linearity, allowing the network to model complex, non-linear real-world relationships.
+
+Mathematically, a single neuron's output y is expressed as:
+$$y = f\left(\sum_{i=1}^{n} w_i x_i + b\right)$$
+
+======================================================================
+HOW LEARNING WORKS: TRAINING THE NETWORK
+======================================================================
+
+A neural network starts with random weights and makes poor predictions. Training it involves an iterative optimization loop:
+
+1. Forward Propagation:
+   Data is fed into the input layer, flows through the hidden layers using current weights, and generates a prediction at the output layer.
+
+2. Loss Calculation:
+   A loss function (like Mean Squared Error or Cross-Entropy Loss) compares the network's prediction against the true target label to quantify the error.
+
+3. Backpropagation:
+   The core learning mechanism. Using calculus (the chain rule), the network computes the gradient of the loss function with respect to every weight and bias, propagating the error backward from the output layer to the input layer.
+
+4. Optimization (Gradient Descent):
+   An optimizer (like Adam or SGD) updates the weights and biases in the direction that minimizes the loss, making the network slightly more accurate for the next pass.
