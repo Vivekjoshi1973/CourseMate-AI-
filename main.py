@@ -4,7 +4,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.document_loaders import TextLoader 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_community.document_loaders import PyPDFLoader
-
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
 
@@ -13,6 +13,14 @@ load_dotenv()
 # data=TextLoader("./document loaders/neural_networks_overview.txt") # loading data using text loader ( loading a .txt file)
 data=PyPDFLoader("./document loaders/Technical Study Guide - Neural Networks & Backend Fundamentals.pdf")  # loading a .pdf file using pypdfloader 
 docs=data.load() # making a object of our file
+
+# defining how chunking is working 
+splitter=RecursiveCharacterTextSplitter(
+    chunk_size=500,
+    chunk_overlap=200
+)
+
+chunks=splitter.split_documents(docs);
 template=ChatPromptTemplate.from_messages(
     [("system","you are a AI that summarizes the text"),
      ("human","{data}")] # human is sending text to system
